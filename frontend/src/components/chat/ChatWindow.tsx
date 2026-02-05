@@ -78,9 +78,12 @@ export function ChatWindow() {
     } catch (error) {
       console.error('Error enviando mensaje:', error)
       const errorMsg = error instanceof Error ? error.message : 'Error desconocido'
+      const hint = errorMsg.includes('Connection refused') || errorMsg.includes('fetch')
+        ? ' Comprueba que Ollama esté corriendo (ollama serve) y que el backend esté en marcha.'
+        : ''
       const errorMessage: Message = {
         role: 'assistant',
-        content: `Lo siento, hubo un error: ${errorMsg}. Comprueba que Ollama esté corriendo (ollama serve) y que el modelo llama3.1:8b esté instalado.`,
+        content: `Lo siento, hubo un error: ${errorMsg}.${hint}`,
         timestamp: new Date().toISOString(),
       }
       setMessages((prev) => [...prev, errorMessage])

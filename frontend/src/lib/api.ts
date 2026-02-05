@@ -51,7 +51,15 @@ export async function* streamMessage(request: ChatRequest): AsyncGenerator<strin
   })
   
   if (!response.ok) {
-    throw new Error('Error enviando mensaje')
+    const errorBody = await response.text()
+    let detail = ''
+    try {
+      const j = JSON.parse(errorBody)
+      detail = j.detail || j.message || errorBody
+    } catch {
+      detail = errorBody || `HTTP ${response.status}`
+    }
+    throw new Error(detail)
   }
   
   const reader = response.body?.getReader()

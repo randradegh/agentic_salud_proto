@@ -57,5 +57,8 @@ chroma_db/
 *.seed
 *.pid.lock
 
-# Logs (evitar duplicados)
+# Logs
 *.log
+
+# Cursor / IDE (opcional)
+.cursor/
