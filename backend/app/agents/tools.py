@@ -17,7 +17,19 @@ def buscar_informacion(query: str) -> str:
     Returns:
         Información relevante encontrada
     """
-    results = rag_retriever.search(query, top_k=3, similarity_threshold=0.7)
+    # Para dirección/ubicación usar umbral más bajo y más resultados (el texto es breve)
+    location_keywords = ("dirección", "ubicación", "dónde", "ubicados", "llegar", "direccion", "ubicacion", "zona", "zonas", "encuentran", "encuentra", "situado", "situados")
+    is_location_query = any(kw in query.lower() for kw in location_keywords)
+    top_k = 5 if is_location_query else 3
+    threshold = 0.45 if is_location_query else 0.7
+    results = rag_retriever.search(query, top_k=top_k, similarity_threshold=threshold)
+    # Si es pregunta de ubicación y no hubo resultados, intentar con query que coincida con ubicacion.md
+    if is_location_query and not results:
+        results = rag_retriever.search(
+            "ubicación dirección consultorio Metro Popotla Alcaldía Miguel Hidalgo",
+            top_k=3,
+            similarity_threshold=0.4
+        )
     
     if not results:
         return "No encontré información relevante sobre ese tema en la base de conocimiento."

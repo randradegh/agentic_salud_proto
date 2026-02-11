@@ -22,13 +22,13 @@ cd TU_REPO
 ```
 
 **Backend**
-```bash
 cd backend
 python3.11 -m venv venv
 source venv/bin/activate   # Windows: venv\Scripts\activate
 pip install -r requirements.txt
 cp .env.example .env      # Editar .env si necesitas (Cal.com, etc.)
-./run.sh
+./run.sh```bash
+
 ```
 
 **Frontend** (en otra terminal)

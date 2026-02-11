@@ -10,7 +10,7 @@ Puedes agendar por teléfono, en nuestra página web o con el asistente virtual 
 Atendemos de lunes a viernes y sábados por la mañana. Los horarios exactos se confirman al agendar. Para urgencias dentales te pedimos llamar para ver si hay espacio el mismo día.
 
 ## ¿Dónde están ubicados?
-Estamos en la Ciudad de México. La dirección exacta y cómo llegar te la damos al confirmar tu cita.
+Estamos en la Ciudad de México, en la Colonia Popotla, muy cerca del Metro Popotla, Alcaldía Miguel Hidalgo. La dirección exacta y cómo llegar te la damos al confirmar tu cita.
 
 ## ¿Cuánto cuesta una limpieza dental?
 Una limpieza dental (profilaxis) tiene un costo aproximado de $600 a $900 pesos en nuestro consultorio. El precio final se confirma en la valoración.

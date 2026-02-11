@@ -60,3 +60,25 @@ Si cambias archivos en `backend/data/knowledge_base/` y el chatbot sigue con con
 1. Detén el backend (Ctrl+C).
 2. Borra ChromaDB: `rm -rf backend/chroma_db`.
 3. Vuelve a iniciar el backend; al arrancar cargará de nuevo los documentos.
+
+---
+
+## Cambiar de modelo Ollama (menos alucinaciones)
+
+Si el modelo inventa datos (p. ej. dirección o precios) en lugar de usar la base de conocimiento:
+
+1. Prueba otro modelo. En terminal:
+   ```bash
+   ollama pull mistral:7b
+   ```
+   (O `llama3.2:3b`, `phi3:mini`, etc.)
+
+2. En `backend/.env` pon:
+   ```env
+   OLLAMA_MODEL=mistral:7b
+   ```
+   (o el nombre del modelo que instalaste).
+
+3. Reinicia el backend.
+
+Sugerencia: **Mistral 7B** suele seguir mejor el contexto y alucinar menos. El sistema ya está configurado para que el asistente use solo la información recuperada; cambiar de modelo puede mejorar aún más.
